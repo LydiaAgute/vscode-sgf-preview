@@ -2,11 +2,13 @@
 
 English | [简体中文](README.zh-cn.md)
 
-Preview SGF Go game records as a board in VS Code. Drag the progress bar to step through the moves, and see the players, ranks, captures, game info and comments at a glance.
+Preview and edit SGF Go game records in VS Code. Drag the progress bar to step through the moves, and see the players, ranks, captures, game info and comments at a glance.
 
 Game parsing, board rules and position estimation are based on open-source libraries from the [Sabaki](https://github.com/SabakiHQ/Sabaki) project. See [Acknowledgements](#acknowledgements). This extension is an independent project and is not an official Sabaki product.
 
-## Usage
+## Features
+
+### Preview
 
 Right-click an `.sgf` file (in the Explorer, on its editor tab, or inside the editor), or click the icon at the top right of the editor, and choose "Preview Game Record".
 
@@ -40,6 +42,12 @@ The "Position estimate" section in the side panel and the territory marks on the
 Variations (branches) are hidden by default. When "Show variations" is checked and you reach a fork, the side panel lists the first move and first comment of each variation, and the board marks the next move of each variation with a translucent stone labeled A, B, C… Click a list item or a translucent stone to enter that variation. The progress bar then follows that path, and "Back to main line" returns to the move where you left the main line.
 
 The four display options are remembered and apply to all game records.
+
+### Text editing
+
+**Syntax highlighting**: Brackets, semicolons, property names and property values are colored according to your theme.
+
+**Property hover**: Hover over a property name (e.g., `PB`, `KM`, `C`) to see its name, description and value type from the FF[4] specification.
 
 ## Language and settings
 

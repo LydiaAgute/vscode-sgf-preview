@@ -10,6 +10,11 @@ import {
   type SgfTree,
   type WebviewMessage,
 } from './protocol';
+import {
+  SgfSemanticTokensProvider,
+  legend as semanticTokensLegend,
+} from './features/semanticTokens';
+import { SgfHoverProvider } from './features/hover';
 
 const SGF_EXT = /\.sgf$/i;
 
@@ -54,6 +59,18 @@ const previews = new Map<string, SgfPreview>();
 
 export function activate(context: vscode.ExtensionContext): void {
   currentLocale();
+
+  // 注册语言特性：语法高亮、悬浮提示
+  const sgfSelector: vscode.DocumentSelector = { language: 'sgf' };
+  context.subscriptions.push(
+    vscode.languages.registerDocumentSemanticTokensProvider(
+      sgfSelector,
+      new SgfSemanticTokensProvider(),
+      semanticTokensLegend,
+    ),
+    vscode.languages.registerHoverProvider(sgfSelector, new SgfHoverProvider()),
+  );
+
   context.subscriptions.push(
     // 修改语言设置后，已打开的预览立即切换
     vscode.workspace.onDidChangeConfiguration((e) => {

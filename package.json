@@ -2,7 +2,7 @@
   "name": "sgf-preview",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "ink-byte",
   "license": "MIT",
   "repository": {
@@ -38,7 +38,9 @@
   },
   "icon": "media/icon.png",
   "main": "./dist/extension.js",
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:sgf"
+  ],
   "scripts": {
     "build": "node scripts/build.js",
     "watch": "node scripts/build.js --watch",

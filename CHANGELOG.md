@@ -2,6 +2,13 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/)，版本号遵循语义化版本。
 
+## [0.2.0]
+
+新增 SGF 文本编辑功能。
+
+- **语法高亮**：识别并着色括号、分号、属性名、属性值等 SGF 语法元素。
+- **字段悬浮提示**：鼠标悬浮在属性名上时显示该属性的 FF[4] 规范说明（中英双语，跟随 `sgfPreview.language`）。悬浮在主线的 `B`、`W` 上时同时显示第几手，变化图中的落子只标注“变化图中的一手”。
+
 ## [0.1.0]
 
 首个版本。
@@ -17,6 +24,13 @@
 ---
 
 Changelog format follows [Keep a Changelog](https://keepachangelog.com/); versions follow semantic versioning.
+
+## [0.2.0]
+
+SGF text editing features added.
+
+- **Syntax highlighting**: Recognizes and colors SGF syntax elements (parentheses, semicolons, property names, property values).
+- **Property hover**: Hover over a property name to see its FF[4] specification description (English and Chinese, following `sgfPreview.language`). Hovering `B` or `W` on the main line also shows the move number; moves inside variations are labeled "Move in a variation".
 
 ## [0.1.0]
 

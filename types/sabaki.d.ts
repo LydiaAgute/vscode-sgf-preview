@@ -9,10 +9,21 @@ declare module '@sabaki/sgf' {
     children: NodeObject[];
   }
 
+  export interface Token {
+    type: string;
+    value: string;
+    pos: number;
+    row: number;
+    col: number;
+  }
+
   export function parse(contents: string): NodeObject[];
 
   /** 按 CA 属性、UTF-8 校验、字符集探测判定编码后解析 */
   export function parseBuffer(buffer: Uint8Array): NodeObject[];
+
+  /** 流式 tokenize */
+  export function tokenizeIter(contents: string): IterableIterator<Token>;
 }
 
 declare module '@sabaki/sgf/src/helper' {

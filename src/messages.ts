@@ -28,6 +28,11 @@ export function setLocale(locale: string): string {
   return current;
 }
 
+/** 当前生效的语言，由 sgfPreview.language 设置决定 */
+export function getLocale(): string {
+  return current;
+}
+
 /** 翻译 message，并把 {0}、{1}… 替换为 args 中对应的值 */
 export function t(message: string, ...args: unknown[]): string {
   const catalog = catalogs[current];
