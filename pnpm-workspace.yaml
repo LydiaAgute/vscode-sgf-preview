@@ -1,0 +1,11 @@
+# 本文件同时是 pnpm 的项目配置。项目只有一个包，不含 packages 字段。
+
+# @sabaki/sgf 依赖的 jschardet 在 2.x、3.x 为 LGPL-2.1+，4.x 起为 0BSD。固定 4.1.0，避免把 LGPL 代码打进发布包。
+overrides:
+  jschardet: 4.1.0
+
+# 只放行 esbuild 的安装脚本（下载与校验平台二进制），其他依赖的脚本一律不执行。
+allowBuilds:
+  esbuild: true
+  # vsce-sign 的脚本用于下载签名校验二进制，打包与发布不依赖它。
+  '@vscode/vsce-sign': false

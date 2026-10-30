@@ -1,0 +1,13 @@
+{
+  "displayName": "SGF 棋谱预览",
+  "description": "在 VS Code 中以棋盘形式预览 SGF 围棋棋谱，支持拖拽进度条逐手查看。基于 Sabaki 开源库",
+  "command.open.title": "预览棋谱",
+  "config.title": "SGF 棋谱预览",
+  "config.language.description": "预览页面和插件提示信息的语言。插件名称和命令标题始终跟随 VS Code 显示语言。",
+  "config.language.auto": "跟随 VS Code 显示语言",
+  "config.language.en": "English（英文）",
+  "config.language.zh-cn": "简体中文",
+  "config.openLocation.description": "新预览的打开位置。已有预览的棋谱只会切换到该预览，不会重复打开。",
+  "config.openLocation.current": "在当前编辑器组打开",
+  "config.openLocation.beside": "在侧边编辑器组打开"
+}

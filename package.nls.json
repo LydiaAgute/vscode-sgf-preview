@@ -1,0 +1,13 @@
+{
+  "displayName": "SGF Game Preview",
+  "description": "Preview SGF Go game records as a board in VS Code, with a draggable progress bar to step through the moves. Based on the Sabaki open-source libraries",
+  "command.open.title": "Preview Game Record",
+  "config.title": "SGF Game Preview",
+  "config.language.description": "Language of the preview page and the extension's messages. The extension name and command titles always follow the VS Code display language.",
+  "config.language.auto": "Follow the VS Code display language",
+  "config.language.en": "English",
+  "config.language.zh-cn": "Simplified Chinese (简体中文)",
+  "config.openLocation.description": "Where a new preview opens. A game record that already has a preview is only brought to the front.",
+  "config.openLocation.current": "In the current editor group",
+  "config.openLocation.beside": "In the editor group beside it"
+}

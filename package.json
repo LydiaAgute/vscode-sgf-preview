@@ -1,0 +1,170 @@
+{
+  "name": "sgf-preview",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.1.0",
+  "publisher": "ink-byte",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LydiaAgute/vscode-sgf-preview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LydiaAgute/vscode-sgf-preview/issues"
+  },
+  "homepage": "https://github.com/LydiaAgute/vscode-sgf-preview#readme",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "sgf",
+    "go",
+    "weiqi",
+    "baduk",
+    "围棋",
+    "棋谱"
+  ],
+  "packageManager": "pnpm@12.16.1",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.16.1",
+      "onFail": "error"
+    }
+  },
+  "icon": "media/icon.png",
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "node scripts/build.js --watch",
+    "notices": "node scripts/gen-notices.js",
+    "icon": "node scripts/gen-icon.js",
+    "build:release": "node scripts/gen-notices.js && node scripts/build.js --production",
+    "test": "node scripts/build.js --test && node test/dist/run.js sgf",
+    "typecheck": "tsc -p src && tsc -p webview && tsc -p test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "package:ls": "vsce ls --no-dependencies",
+    "package": "pnpm run build:release && vsce package --no-dependencies",
+    "publish:vsce": "pnpm run build:release && vsce publish --no-dependencies"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "sgf",
+        "aliases": [
+          "SGF",
+          "sgf"
+        ],
+        "extensions": [
+          ".sgf",
+          ".SGF"
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "sgfPreview.language": {
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "en",
+            "zh-cn"
+          ],
+          "enumDescriptions": [
+            "%config.language.auto%",
+            "%config.language.en%",
+            "%config.language.zh-cn%"
+          ],
+          "description": "%config.language.description%"
+        },
+        "sgfPreview.openLocation": {
+          "type": "string",
+          "default": "current",
+          "enum": [
+            "current",
+            "beside"
+          ],
+          "enumDescriptions": [
+            "%config.openLocation.current%",
+            "%config.openLocation.beside%"
+          ],
+          "description": "%config.openLocation.description%"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "sgfPreview.open",
+        "title": "%command.open.title%",
+        "category": "SGF",
+        "icon": {
+          "light": "media/icons/preview-light.svg",
+          "dark": "media/icons/preview-dark.svg"
+        }
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "sgfPreview.open",
+          "when": "resourceLangId == sgf || resourceExtname == .sgf || resourceExtname == .SGF",
+          "group": "navigation@99"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "sgfPreview.open",
+          "when": "resourceLangId == sgf || resourceExtname == .sgf || resourceExtname == .SGF",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "sgfPreview.open",
+          "when": "resourceLangId == sgf || resourceExtname == .sgf || resourceExtname == .SGF",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sgfPreview.open",
+          "when": "resourceLangId == sgf || resourceExtname == .sgf || resourceExtname == .SGF",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "sgfPreview.open",
+          "when": "resourceLangId == sgf || resourceExtname == .sgf || resourceExtname == .SGF"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@sabaki/go-board": "1.4.3",
+    "@sabaki/influence": "1.2.2",
+    "@sabaki/sgf": "3.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "20.19.43",
+    "@types/vscode": "1.75.0",
+    "@vscode/vsce": "4.1.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.13.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1"
+  }
+}

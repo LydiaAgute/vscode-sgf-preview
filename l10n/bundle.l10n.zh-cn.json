@@ -1,0 +1,6 @@
+{
+  "Please select an .sgf game record first": "请先选择一个 .sgf 棋谱文件",
+  "Game: {0}": "棋谱: {0}",
+  "Failed to read the game record: {0}": "读取棋谱失败：{0}",
+  "No game data found in the file": "未找到棋谱数据"
+}

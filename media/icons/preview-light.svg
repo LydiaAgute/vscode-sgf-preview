@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <!-- 棋子周围挖空网格线，空心子内部不透出线条 -->
+    <mask id="cut">
+      <rect width="16" height="16" fill="#fff"/>
+      <circle cx="3" cy="3" r="3"/>
+      <circle cx="8" cy="8" r="3"/>
+      <circle cx="13" cy="3" r="3"/>
+      <circle cx="8" cy="13" r="3"/>
+    </mask>
+  </defs>
+  <!-- 3×3 棋盘局部，线条两端出头 -->
+  <g stroke="#424242" stroke-width="1" mask="url(#cut)">
+    <path d="M3 0.5V15.5M8 0.5V15.5M13 0.5V15.5M0.5 3H15.5M0.5 8H15.5M0.5 13H15.5"/>
+  </g>
+  <g fill="#424242">
+    <circle cx="3" cy="3" r="2.4"/>
+    <circle cx="8" cy="8" r="2.4"/>
+  </g>
+  <g fill="none" stroke="#424242" stroke-width="1">
+    <circle cx="13" cy="3" r="2"/>
+    <circle cx="8" cy="13" r="2"/>
+  </g>
+</svg>
